@@ -1,0 +1,10 @@
+#result {
+  color: red; }
+
+.picture {
+  background-image: url("http://thrivedigital.wpengine.com/wp-content/uploads/2015/05/yelp.jpg");
+  height: 300px;
+  width: 300px;
+  background-size: 100% 100%; }
+
+/*# sourceMappingURL=style.css.map */
