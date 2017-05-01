@@ -2,9 +2,12 @@
   color: red; }
 
 .picture1 {
-  background-image: url("http://thrivedigital.wpengine.com/wp-content/uploads/2015/05/yelp.jpg");
+  background-image: url("");
   height: 300px;
   width: 300px;
   background-size: 100% 100%; }
+
+.search-result {
+  display: inline; }
 
 /*# sourceMappingURL=style.css.map */

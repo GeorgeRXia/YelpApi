@@ -19,11 +19,23 @@ $(document).ready(function(){
 var msg = "";
 
 var pictureArray = [];
-	// for(var i = 0; i < location.length; i++){
+	for(var i = 0; i < location.length; i++){
 
-	// 	location[i].addEventListener("click",function(){
+		location[i].addEventListener("click",function(){
 
 
+			locationResult = event.target.textContent;
+			console.log(locationResult);
+
+
+		})
+
+
+	}
+
+
+	// location.forEach(function(innerArray){
+	// 	innerArray.addEventListener("click" function(){
 	// 		locationResult = event.target.textContent;
 	// 		console.log(locationResult);
 
@@ -31,20 +43,8 @@ var pictureArray = [];
 	// 	})
 
 
-	// }
 
-
-	location.forEach(function(innerArray){
-		innerArray.addEventListener("click" function(){
-			locationResult = event.target.textContent;
-			console.log(locationResult)
-
-
-		})
-
-
-
-	})
+	// })
 
 
 // div.style.backgroundImage="url('"+variable+"')"
@@ -66,28 +66,28 @@ var pictureArray = [];
          	console.log(response);
    
 
-         	// for(let i = 0; i < 10; i++){
+         	for(let i = 0; i < 10; i++){
          		
-         	//  msg +=  "<div class= 'picture1'>" + "<a href=" + response.businesses[i].url + " target= '_blank' >" + response.businesses[i].name + "</br>" + " Address:" + response.businesses[i].location.address[0] +  " Philadelphia, Pa"+   + "</a>" + "</br> " + "</br>" + "</div>"; 
+         	 msg +=    "<a href=" + response.businesses[i].url + " target= '_blank' class='search-result'>" + response.businesses[i].name + "</br>" + " Address:" + response.businesses[i].location.address[0] +  " Philadelphia, Pa"+   + "</a>" + "</br> " + "</br>" + "<div class= 'picture1'></div>"; 
 
-         	//  pictureArray.push(response.businesses[i].image_url);
+         	 pictureArray.push(response.businesses[i].image_url);
          	
          	 
 
          	 
-          //    }
+             }
 
 
-             response.businesses.forEach(function(innerArray){
+             // response.businesses.forEach(function(innerArray){
 
-             	 msg +=  "<div class= 'picture1'>" + "<a href=" + response.businesses.url + " target= '_blank' >" + response.businesses.name + "</br>" + " Address:" + response.businesses.location.address[0] +  " Philadelphia, Pa"+   + "</a>" + "</br> " + "</br>" + "</div>"; 
+             // 	 msg +=  "<div class= 'picture1'>" + "<a href=" + response.businesses.url + " target= '_blank' >" + response.businesses.name + "</br>" + " Address:" + response.businesses.location.address[0] +  " Philadelphia, Pa"+   + "</a>" + "</br> " + "</br>" + "</div>"; 
 
 
-             })
+             // })
 
 
              results.innerHTML = msg;
-             var picture1 = document.getelementsByClassName("picture1");
+             var picture1 = document.getElementsByClassName("picture1");
 
              for(let i = 0; i < picture1.length; i++){
 				picture1[i].addEventListener("mouseover", function(){
