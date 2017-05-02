@@ -16,15 +16,10 @@ $(document).ready(function(){
 	var results = document.getElementById("result");
 	var location = document.getElementsByClassName("locations");
 	var locationResult = "";
-var msg = "";
-console.log(location);
-
-var pictureArray = [];
+    var msg = "";
 
 
-
-
-	Array.prototype.forEach.call(location,function(innerArray) {
+    Array.prototype.forEach.call(location,function(innerArray) {
 		innerArray.addEventListener("click", function(){
 		
 			locationResult = event.target.textContent;
@@ -41,7 +36,7 @@ var pictureArray = [];
 	submitButton.addEventListener("click", function(){
 		results.innerHTML = "";
 		msg = "";
-		// pictureArray = [];
+	
 		searchValue = searchBar.value;
 
      $.ajax({
@@ -53,23 +48,7 @@ var pictureArray = [];
          	location: locationResult
         },
          success: function(response){
-         	console.log(response);
-   
-
-         	// for(let i = 0; i < response.businesses.length; i++){
-         		
-         	//  msg +=    "<a href=" + response.businesses[i].url + " target= '_blank' class='search-result'>";
-         	//  msg += response.businesses[i].name + "</br>";
-         	//  msg += " Address:" + response.businesses[i].location.address[0] +  " Philadelphia, Pa" +  "</a>"; 
-         	//  msg += "</br>" + "<img class= 'picture1' src=" + response.businesses[i].image_url + ">" + "</br>"; 
-
-         	 
-        
-         	 
-          //    }
-
-          //    results.innerHTML = msg;
-
+ 
 
 			Array.prototype.forEach.call(response.businesses,function(iArray) {
 				
@@ -83,40 +62,7 @@ var pictureArray = [];
 			})
             results.innerHTML = msg;
 
-             // response.businesses.forEach(function(innerArray){
 
-             // 	 msg +=  "<div class= 'picture1'>" + "<a href=" + response.businesses.url + " target= '_blank' >" + response.businesses.name + "</br>" + " Address:" + response.businesses.location.address[0] +  " Philadelphia, Pa"+   + "</a>" + "</br> " + "</br>" + "</div>"; 
-
-
-             // })
-
-
-             // results.innerHTML = msg;
-    //          var picture1 = document.getElementsByClassName("picture1");
-
-    //          for(let i = 0; i < picture1.length; i++){
-				// picture1[i].addEventListener("mouseover", function(){
-    //          		var targetSearch = event.target;
-    //          		targetSearch.style.backgroundImage = "url("  + pictureArray[i] +     ")";
-
-				// })
-
-
-    //          }
-
-             // picture1.forEach(function(innerArray){
-             // 	picture1.addEventListener("mouseover", function(){
-
-             // 		var targetSearch = event.target;
-             // 		targetSearch.style.backgroundImage = "url("  + pictureArray[i] +     ")";
-
-
-             // 	})
-
-
-
-
-             // })
 		}
 
      })
