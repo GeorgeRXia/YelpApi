@@ -3,11 +3,8 @@
 
 .picture1 {
   background-image: url("");
-  height: 300px;
-  width: 300px;
+  height: 200px;
+  width: 200px;
   background-size: 100% 100%; }
-
-.search-result {
-  display: inline; }
 
 /*# sourceMappingURL=style.css.map */

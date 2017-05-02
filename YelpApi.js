@@ -17,6 +17,7 @@ $(document).ready(function(){
 	var location = document.getElementsByClassName("locations");
 	var locationResult = "";
 var msg = "";
+console.log(location);
 
 var pictureArray = [];
 	for(var i = 0; i < location.length; i++){
@@ -34,8 +35,8 @@ var pictureArray = [];
 	}
 
 
-	// location.forEach(function(innerArray){
-	// 	innerArray.addEventListener("click" function(){
+	// location.forEach(function(innerArray) {
+	// 	innerArray.addEventListener("click", function(){
 	// 		locationResult = event.target.textContent;
 	// 		console.log(locationResult);
 
@@ -47,11 +48,10 @@ var pictureArray = [];
 	// })
 
 
-// div.style.backgroundImage="url('"+variable+"')"
-
 	submitButton.addEventListener("click", function(){
 		results.innerHTML = "";
-		pictureArray = [];
+		msg = "";
+		// pictureArray = [];
 		searchValue = searchBar.value;
 
      $.ajax({
@@ -68,15 +68,17 @@ var pictureArray = [];
 
          	for(let i = 0; i < 10; i++){
          		
-         	 msg +=    "<a href=" + response.businesses[i].url + " target= '_blank' class='search-result'>" + response.businesses[i].name + "</br>" + " Address:" + response.businesses[i].location.address[0] +  " Philadelphia, Pa"+   + "</a>" + "</br> " + "</br>" + "<div class= 'picture1'></div>"; 
+         	 msg +=    "<a href=" + response.businesses[i].url + " target= '_blank' class='search-result'>";
+         	 msg += response.businesses[i].name + "</br>";
+         	 msg += " Address:" + response.businesses[i].location.address[0] +  " Philadelphia, Pa" +  "</a>"; 
+         	 msg += "</br>" + "<img class= 'picture1' src=" + response.businesses[i].image_url + ">" + "</br>"; 
 
-         	 pictureArray.push(response.businesses[i].image_url);
-         	
          	 
-
+        
          	 
              }
 
+             results.innerHTML = msg;
 
              // response.businesses.forEach(function(innerArray){
 
@@ -86,18 +88,18 @@ var pictureArray = [];
              // })
 
 
-             results.innerHTML = msg;
-             var picture1 = document.getElementsByClassName("picture1");
+             // results.innerHTML = msg;
+    //          var picture1 = document.getElementsByClassName("picture1");
 
-             for(let i = 0; i < picture1.length; i++){
-				picture1[i].addEventListener("mouseover", function(){
-             		var targetSearch = event.target;
-             		targetSearch.style.backgroundImage = "url("  + pictureArray[i] +     ")";
+    //          for(let i = 0; i < picture1.length; i++){
+				// picture1[i].addEventListener("mouseover", function(){
+    //          		var targetSearch = event.target;
+    //          		targetSearch.style.backgroundImage = "url("  + pictureArray[i] +     ")";
 
-				})
+				// })
 
 
-             }
+    //          }
 
              // picture1.forEach(function(innerArray){
              // 	picture1.addEventListener("mouseover", function(){
