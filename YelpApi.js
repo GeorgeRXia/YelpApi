@@ -56,33 +56,32 @@ var pictureArray = [];
          	console.log(response);
    
 
-         	for(let i = 0; i < 10; i++){
+         	// for(let i = 0; i < response.businesses.length; i++){
          		
-         	 msg +=    "<a href=" + response.businesses[i].url + " target= '_blank' class='search-result'>";
-         	 msg += response.businesses[i].name + "</br>";
-         	 msg += " Address:" + response.businesses[i].location.address[0] +  " Philadelphia, Pa" +  "</a>"; 
-         	 msg += "</br>" + "<img class= 'picture1' src=" + response.businesses[i].image_url + ">" + "</br>"; 
+         	//  msg +=    "<a href=" + response.businesses[i].url + " target= '_blank' class='search-result'>";
+         	//  msg += response.businesses[i].name + "</br>";
+         	//  msg += " Address:" + response.businesses[i].location.address[0] +  " Philadelphia, Pa" +  "</a>"; 
+         	//  msg += "</br>" + "<img class= 'picture1' src=" + response.businesses[i].image_url + ">" + "</br>"; 
 
          	 
         
          	 
-             }
+          //    }
 
-             results.innerHTML = msg;
-
-
-			// Array.prototype.forEach.call(response.businesses,function(innerArray) {
-			// 	innerArray.addEventListener("click", function(){
-		
-			// 		locationResult = event.target.textContent;
-			// 		console.log(locationResult);
+          //    results.innerHTML = msg;
 
 
-			// 	})
+			Array.prototype.forEach.call(response.businesses,function(iArray) {
+				
+             msg += "<a href=" + iArray.url + " target= '_blank' class='search-result'>";
+             msg += "<div>" + iArray.name + "</div>";
+             msg += " Address: " + iArray.location.address[0] +  " Philadelphia, Pa" 
+             msg +=  "</a>"; 
+             msg += "<div>" + "<img class= 'picture1' src=" + iArray.image_url + ">" + "</div>"; 
 
 
-
-			// })
+			})
+            results.innerHTML = msg;
 
              // response.businesses.forEach(function(innerArray){
 
