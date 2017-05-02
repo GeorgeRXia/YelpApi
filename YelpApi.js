@@ -20,23 +20,11 @@ var msg = "";
 console.log(location);
 
 var pictureArray = [];
-	for(var i = 0; i < location.length; i++){
+	// for(var i = 0; i < location.length; i++){
 
-		location[i].addEventListener("click",function(){
-
-
-			locationResult = event.target.textContent;
-			console.log(locationResult);
+	// 	location[i].addEventListener("click",function(){
 
 
-		})
-
-
-	}
-
-
-	// location.forEach(function(innerArray) {
-	// 	innerArray.addEventListener("click", function(){
 	// 		locationResult = event.target.textContent;
 	// 		console.log(locationResult);
 
@@ -44,8 +32,21 @@ var pictureArray = [];
 	// 	})
 
 
+	// }
 
-	// })
+
+	Array.prototype.forEach.call(location,function(innerArray) {
+		innerArray.addEventListener("click", function(){
+		
+			locationResult = event.target.textContent;
+			console.log(locationResult);
+
+
+		})
+
+
+
+	})
 
 
 	submitButton.addEventListener("click", function(){
