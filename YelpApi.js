@@ -51,7 +51,7 @@ var pictureArray = [];
 	submitButton.addEventListener("click", function(){
 		results.innerHTML = "";
 		msg = "";
-		// pictureArray = [];
+		pictureArray = [];
 		searchValue = searchBar.value;
 
      $.ajax({
@@ -70,11 +70,12 @@ var pictureArray = [];
          		
          	 msg +=    "<a href=" + response.businesses[i].url + " target= '_blank' class='search-result'>";
          	 msg += response.businesses[i].name + "</br>";
-         	 msg += " Address:" + response.businesses[i].location.address[0] +  " Philadelphia, Pa" +  "</a>"; 
-         	 msg += "</br>" + "<img class= 'picture1' src=" + response.businesses[i].image_url + ">" + "</br>"; 
+         	 msg += " Address:" + response.businesses[i].location.address[0] +  " Philadelphia, Pa" +  "</a>" + "</br>";
+         	 msg += "<div class='picture1'> </div>"; //can get rid of and the last br
+         	 // msg += "</br>" + "<img class= 'picture1' src=" + response.businesses[i].image_url + ">" + "</br>"; 
 
          	 
-        
+        		pictureArray.push(response.businesses[i].image_url);
          	 
              }
 
@@ -88,7 +89,7 @@ var pictureArray = [];
              // })
 
 
-             // results.innerHTML = msg;
+             
     //          var picture1 = document.getElementsByClassName("picture1");
 
     //          for(let i = 0; i < picture1.length; i++){
@@ -101,7 +102,7 @@ var pictureArray = [];
 
     //          }
 
-             // picture1.forEach(function(innerArray){
+			// picture1.forEach(function(innerArray){
              // 	picture1.addEventListener("mouseover", function(){
 
              // 		var targetSearch = event.target;
@@ -114,6 +115,15 @@ var pictureArray = [];
 
 
              // })
+
+             results.addEventListener("DOMSubtreeModified", function(){
+
+             	var targetSearch = event.target;
+             		targetSearch.style.backgroundImage = "url("  + pictureArray[0] +     ")";
+
+
+             })
+
 		}
 
      })
